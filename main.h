@@ -9,10 +9,10 @@
 typedef struct letter
 {
 char *cmp;
-void (*f)();
+int (*f)();
 } comparison;
 int _printf(const char *format, ...);
 int _putchar(char c);
-void print_s(va_list *args);
-void print_c(va_list *args);
+int print_s(va_list *args);
+int print_c(va_list *args);
 #endif /* MAIN_H */
