@@ -16,6 +16,8 @@ int _printf(const char *format, ...)
 	};
 	int i;
 	int j;
+	int count = 0;
+	int total = 0;
 
 	va_list args;
 
@@ -31,8 +33,8 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == *letra[j].cmp)
 				{
-					letra[j].f(args);
-					i++;
+					total += letra[j].f(args);
+					i++, count += 2;
 				}
 			}
 		}
@@ -40,5 +42,6 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 	}
 	va_end(args);
-	return (0);
+	return (total + (i - count));
+
 }
