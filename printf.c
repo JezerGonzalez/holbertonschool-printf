@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == *letra[j].cmp)
 				{
 					total += letra[j].f(args);
-					i++, count += 3;
+					i++, count += 2;
 				}
 			}
 		}
