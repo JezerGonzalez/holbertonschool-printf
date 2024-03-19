@@ -3,27 +3,6 @@
 #include <stddef.h>
 #include <stdio.h>
 /**
- *print_c - prints a character if a % is followed by c
- *@args: function on the structure
- */
-void print_c(va_list *args)
-{
-	char letra = va_arg(*args, int);
-	_putchar(letra);
-}
-/**
- *print_s - prints a string if a % is followd by an s
- *@args: function on the structure
- */
-void print_s(va_list *args)
-{
-	int i;
-	char *ptr = va_arg(*args, char *);
-
-	for (i = 0; ptr[i] != '\0'; i++)
-		_putchar(ptr[i]);
-}
-/**
  *_printf - prints the output acording to the format specifier
  *@format: specific character in a string
  *Return: 0
