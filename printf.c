@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	int i;
 	int j;
 	int count = 0;
+	int total = 0;
 
 	va_list args;
 
@@ -31,7 +32,7 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == *letra[j].cmp)
 				{
-					letra[j].f(args);
+					total += letra[j].f(args);
 					i++, count += 3;
 				}
 			}
@@ -41,6 +42,6 @@ int _printf(const char *format, ...)
 	}
 	va_end(args);
 
-	return (i - count);
+	return (total + (i - count));
 
 }
