@@ -6,11 +6,13 @@
  *print_s - prints a string if a % is followd by an s
  *@args: function on the structure
  */
-void print_s(va_list *args)
+int print_s(va_list *args)
 {
 	int i;
 	char *ptr = va_arg(*args, char *);
 
 	for (i = 0; ptr[i] != '\0'; i++)
 		_putchar(ptr[i]);
+
+	return (i);
 }
