@@ -5,6 +5,7 @@
 /**
  *print_c - prints a character if a % is followed by c
  *@args: function on the structure
+ *Return: character
  */
 int print_c(va_list *args)
 {

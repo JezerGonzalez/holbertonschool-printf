@@ -11,10 +11,7 @@ int _printf(const char *format, ...)
 {
 	comparison letra[] = {{"c", print_c}, {"s", print_s},
 		{"d", print_num}, {"i", print_num}, {NULL, NULL}};
-	int i = 0;
-	int j;
-	int count = 0;
-	int total = 0;
+	int i = 0, j, count = 0, total = 0;
 
 	va_list args;
 
@@ -26,6 +23,14 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			for (j = 0; letra[j].cmp != NULL; j++)
+			{
+				if (format[i + 1] == *letra[j].cmp)
+				{
+					i++, total += letra[j].f(args);
+					i++, count += 2;
+				}
+			}
 			if (format[i + 1] == '%')
 			{
 				_putchar('%');
@@ -33,19 +38,14 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == '\0')
 				return (-1);
-			for (j = 0; letra[j].cmp != NULL; j++)
-			{
-				if (format[i + 1] == *letra[j].cmp)
-				{
-					total += letra[j].f(args);
-					i++, count += 2;
-				}
-			}
+			else if (format[i + 1] != '\0')
+				_putchar(format[i]);
 		}
 		else
+		{
 			_putchar(format[i]);
+		}
 	}
 	va_end(args);
-
 	return (total + (i - count));
 }
