@@ -9,7 +9,8 @@
  */
 int _printf(const char *format, ...)
 {
-	comparison letra[] = {{"c", print_c}, {"s", print_s}, {NULL, NULL}};
+	comparison letra[] = {{"c", print_c}, {"s", print_s},
+		{"d", print_num}, {"i", print_num}, {NULL, NULL}};
 	int i = 0;
 	int j;
 	int count = 0;
