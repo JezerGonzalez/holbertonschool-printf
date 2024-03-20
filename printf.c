@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == '%')
 			{
 				_putchar('%');
-				count++;
+				i++, count++;
 			}
 			for (j = 0; letra[j].cmp != NULL; j++)
 			{
