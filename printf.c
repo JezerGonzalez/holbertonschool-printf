@@ -9,7 +9,8 @@
  */
 int _printf(const char *format, ...)
 {
-	comparison letra[] = {{"c", print_c}, {"s", print_s}, {NULL, NULL}};
+	comparison letra[] = {{"c", print_c}, {"s", print_s},
+		{"d", print_num}, {"i", print_num}, {NULL, NULL}};
 	int i = 0, j, count = 0, total = 0;
 
 	va_list args;
