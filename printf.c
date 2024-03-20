@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	comparison letra[] = {{"c", print_c}, {"s", print_s}, {NULL, NULL}};
-	int i;
+	int i = 0;
 	int j;
 	int count = 0;
 	int total = 0;
@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	if (format == NULL || format == "%")
+	if (format == NULL || format[i] == '%')
 		return (-1);
 	for (i = 0; format != NULL && format[i] != '\0'; i++)
 	{
