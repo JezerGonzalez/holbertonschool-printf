@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	if (format == NULL || format[i] == '%')
+	if (format == NULL)
 		return (-1);
 	for (i = 0; format != NULL && format[i] != '\0'; i++)
 	{
@@ -30,6 +30,8 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				i++, count++;
 			}
+			else if (format[i + 1] == '\0')
+				return (-1);
 			for (j = 0; letra[j].cmp != NULL; j++)
 			{
 				if (format[i + 1] == *letra[j].cmp)
@@ -45,5 +47,4 @@ int _printf(const char *format, ...)
 	va_end(args);
 
 	return (total + (i - count));
-
 }
