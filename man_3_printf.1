@@ -1,0 +1,54 @@
+.TH _printf.c "March 2024" "Version 1.0"
+
+.SH NAME
+_printf.c - replicates the printf command found in the standard library
+
+.SH SYNOPSIS
+.B #include "main.h"
+.PP
+.B _printf FORMAT [ARGUMENT]...
+.B _printf OPTION
+.PP
+
+.SH DESCRIPTION
+It takes the argument according to the format and outputs the resulting string.
+
+.SH OPTIONS
+
+.RS
+
+.nf
+
+- %c - prints a single character.
+- %s - prints a string.
+- %d / %i - prints the assigned interger.
+- %% - prints a single percent sign.
+
+.SH EXAMPLES
+.PP
+#include <stdio.h> //library where the printf function is stored.
+.PP
+_printf("The number is: %d\n", 25);
+.PP
+_printf("Single character: %c\n", C);
+.PP
+_printf("Hello, my name is %s.\n", Joseph);
+.PP
+_printf("I only have 25%% of charge on my phone.\n");
+.PP
+Output:
+.PP
+The number is: 25
+.PP
+Single character: C
+.PP
+Hello, my name is Joseph.
+.PP
+I only have 25% of charge on my phone.
+
+.SH HISTORY
+"version 1.0"
+
+
+.SH AUTHOR
+Kevin Rentas Rivera, Jezer Gonzalez Gonzalez
