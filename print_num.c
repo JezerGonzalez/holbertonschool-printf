@@ -4,8 +4,8 @@
 #include <stdlib.h>
 
 /**
- * print_number - Entry point
- *@args: el integer para print
+ * print_num - print number
+ * @args: el integer para print
  * Return: ...
  */
 
