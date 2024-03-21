@@ -10,14 +10,17 @@
  */
 int print_s(va_list *args)
 {
-	int i;
+	int len = 0;
+	size_t x;
 	char *ptr = va_arg(*args, char *);
 
 	if (ptr == NULL)
 		return (write(1, "(null)", 6));
 
-	for (i = 0; ptr[i] != '\0'; i++)
-		_putchar(ptr[i]);
+	while (ptr[len] != '\0')
+		len++;
+	x = len;
+	write(1, ptr, x);
 
-	return (i);
+	return (len);
 }
