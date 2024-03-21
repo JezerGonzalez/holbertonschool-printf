@@ -9,43 +9,53 @@
  */
 int _printf(const char *format, ...)
 {
-	comparison letra[] = {{"c", print_c}, {"s", print_s},
-		{"d", print_num}, {"i", print_num}, {NULL, NULL}};
-	int i = 0;
-	int j;
-	int count = 0;
-	int total = 0;
-
+	int len = 0, i = 0, j = 0, count = 0;
 	va_list args;
-
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	{
+		return -1;
+	}
 	va_start(args, format);
 
-	if (format == NULL)
-		return (-1);
-	for (i = 0; format != NULL && format[i] != '\0'; i++)
+	while (format[i])
 	{
-		if (format[i] == '%')
+		if (format[i] != '%')
 		{
-			if (format[i + 1] == '%')
+			len += _putchar(format[i]);
+		}
+		else
+		{
+			i++;
+			if (format[i] == '%')
 			{
-				_putchar('%');
-				i++, count++;
+				len += _putchar('%');
 			}
-			else if (format[i + 1] == '\0')
-				return (-1);
-			for (j = 0; letra[j].cmp != NULL; j++)
+			else
 			{
-				if (format[i + 1] == *letra[j].cmp)
+				comparison letra[] = {
+					{"c", print_c}, {"s", print_s},
+					{"d", print_num}, {"i", print_num},
+					{NULL, NULL}
+				};
+				while (letra[j].cmp != NULL)
 				{
-					total += letra[j].f(args);
-					i++, count += 2;
+					if (format[i] == *(letra[j].cmp))
+					{
+						len += letra[j].f(args);
+						count = 1;
+						break;
+					}
+					j++;
+				}
+				if (!count)
+				{
+					len += _putchar('%');
+					len += _putchar(format[i]);
 				}
 			}
 		}
-		else
-			_putchar(format[i]);
+		i++;
 	}
 	va_end(args);
-
-	return (total + (i - count));
+	return len;
 }
