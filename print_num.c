@@ -5,7 +5,7 @@
 
 /**
  * print_number - Entry point
- *@va: el integer para print
+ *@args: el integer para print
  * Return: ...
  */
 
