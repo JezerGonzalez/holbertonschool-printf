@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 			{
 				comparison letra[] = {{"c", print_c}, {"s", print_s},
 					{"d", print_num}, {"i", print_num}, {NULL, NULL}};
-				while (letra[j].cmp != NULL)
+				for (j = 0; letra[j].cmp != NULL; j++)
 				{
 					if (format[i] == *(letra[j].cmp))
 					{
@@ -37,7 +37,6 @@ int _printf(const char *format, ...)
 						count = 1;
 						break;
 					}
-					j++;
 				}
 				if (!count)
 					len += _putchar('%'), len += _putchar(format[i]);
